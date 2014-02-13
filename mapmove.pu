@@ -1,0 +1,35 @@
+@startuml
+
+Map 0-- Unit
+Map *-- Hex
+
+Hex *-- Terrain
+Hex *-- "0..1" Path
+               Path <|-- Road
+               Path <|-- Trail
+Hex *-- "6" HexEdge
+Hex -- "2..6" Hex : Neighbors
+HexEdge *-- 0..1 Border
+HexEdge *-- 0..1 Stream
+HexEdge *-- 0..1 Wall
+
+Terrain <|-- Clear
+Terrain <|-- Forest
+Terrain <|-- Woods
+Terrain <|-- Broken
+Terrain <|-- Rough
+Terrain <|-- Glacier
+Terrain <|-- Cultivated
+Terrain <|-- Swamp
+Terrain <|-- Karoo
+Terrain <|-- Water
+Terrain <|-- Mountain
+
+Hex Stuff:
+Units
+
+Tunnel, Vortex, Portal, Volcano,Capital
+
+Ford, Road, Trail, Capital
+Hex Edge Terrain:
+Stream, Wall, Gate, 
