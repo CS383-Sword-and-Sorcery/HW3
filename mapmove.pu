@@ -1,18 +1,33 @@
 @startuml
+hide circle
+' <|-- is "extention" and used for class inheritence
+' *-- is composition (static aggregation), for when b is permanently "part of" a
+' o-- is aggregation (dynamic aggregation)
 
-Map 0-- Unit
-Map *-- Hex
+class Map {
+    -Hex[] hexes
+	Hex getHex(int)
+
+}
+
+class Hex {
+	-Hex[] neighbors
+	Hex neighbor(Direction)
+}
+
+Map o-- "0..n" UnitStack
+Map *-- "2046" Hex
 
 Hex *-- Terrain
 Hex *-- "0..1" Path
                Path <|-- Road
                Path <|-- Trail
 Hex *-- "6" HexEdge
-Hex -- "2..6" Hex : Neighbors
-HexEdge *-- 0..1 Border
-HexEdge *-- 0..1 Stream
-HexEdge *-- 0..1 Wall
-
+HexEdge *-- "0..1" Border
+HexEdge *-- "0..1" Stream
+HexEdge *-- "0..1" Wall
+                   Wall <|-- SolidWall
+                   Wall <|-- Gate
 Terrain <|-- Clear
 Terrain <|-- Forest
 Terrain <|-- Woods
@@ -25,11 +40,10 @@ Terrain <|-- Karoo
 Terrain <|-- Water
 Terrain <|-- Mountain
 
-Hex Stuff:
-Units
-
-Tunnel, Vortex, Portal, Volcano,Capital
-
-Ford, Road, Trail, Capital
-Hex Edge Terrain:
-Stream, Wall, Gate, 
+'Hex Stuff:
+'Tunnel, Vortex, Portal, Volcano,Capital
+'
+'Ford, Capital
+'Hex Edge Terrain:
+'Stream, Wall, Gate, 
+@enduml
