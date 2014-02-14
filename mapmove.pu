@@ -17,10 +17,12 @@ class Hex {
     -terrainImprovement
     +getNumber()
     +getProvince()
-    +getMovementCost(Hex enterHex, Race unitRace)
+    +getMovementCost(Hex enterHex, Race)
     +getCombatEffect()
     +getTerrain()
     +getTerrainImprovement()
+	+getHexEdge(Direction)
+    +getNeighbor(Direction)
 }
 
 Map o-- "0..n" UnitStack
