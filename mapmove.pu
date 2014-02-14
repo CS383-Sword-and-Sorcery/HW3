@@ -5,8 +5,10 @@ hide circle
 ' o-- is aggregation (dynamic aggregation)
 
 class Map {
-    -Hex[] hexes
-	Hex getHex(int)
+    -Hex[2046] hexes
+    -Hex[6] teleportHexes
+	+Hex getHex(int number)
+    +Hex getTeleportHex(int 0..5)
 }
 
 class Hex {
