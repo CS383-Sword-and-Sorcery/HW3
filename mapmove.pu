@@ -31,6 +31,7 @@ Hex *-- TerrainImprovementType
 Hex *-- TerrainType
 Hex *-- "0..1" Capitol
 Hex o-- "0..n" UnitStack
+Hex o-- "0..1" Vortex
 HexEdge *-- "0..1" Border
 HexEdge *-- "0..1" Stream
 HexEdge *-- "0..1" Wall
@@ -58,7 +59,7 @@ TerrainImprovementType <|-- DragonTunnel
 TerrainImprovementType <|-- Ford
 TerrainImprovementType <|-- Portal
 TerrainImprovementType <|-- Town
-TerrainImprovementType <|-- Vortex
+TerrainImprovementType <|-- VortexTerrain
 TerrainImprovementType <|-- Path
                             Path <|-- Road
                             Path <|-- Trail
