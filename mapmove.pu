@@ -48,7 +48,7 @@ TerrainType <|-- Lake
 TerrainType <|-- Mountain
 TerrainType <|-- Rough
 TerrainType <|-- Swamp
-TerrainType <|-- Woords
+TerrainType <|-- Woods
 TerrainImprovementType <|-- Blasted
 TerrainImprovementType <|-- Bridge
 TerrainImprovementType <|-- Castle
