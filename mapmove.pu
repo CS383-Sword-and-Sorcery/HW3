@@ -25,12 +25,12 @@ class Hex {
     +getNeighbor(Direction)
 }
 
-Map o-- "0..n" UnitStack
 Map *-- "2046" Hex
 Hex *-- "6" HexEdge
 Hex *-- TerrainImprovementType
 Hex *-- TerrainType
 Hex *-- Capitol
+Hex o-- "0..n" UnitStack
 HexEdge *-- "0..1" Border
 HexEdge *-- "0..1" Stream
 HexEdge *-- "0..1" Wall
