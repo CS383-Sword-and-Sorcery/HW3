@@ -51,9 +51,9 @@ TerrainImprovementType <|-- City
 TerrainImprovementType <|-- DragonTunnel
 TerrainImprovementType <|-- Ford
 TerrainImprovementType <|-- Portal
-TerrainImprovementType <|-- Road
 TerrainImprovementType <|-- Town
-TerrainImprovementType <|-- Trail
 TerrainImprovementType <|-- Vortex
-
+TerrainImprovementType <|-- Path
+                            Path <|-- Road
+                            Path <|-- Trail
 @enduml
