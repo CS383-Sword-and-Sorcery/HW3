@@ -51,6 +51,8 @@ TerrainType <|-- Mountain
 TerrainType <|-- Rough
 TerrainType <|-- Swamp
 TerrainType <|-- Woods
+TerrainType <|-- VortexTerrain
+TerrainType <|-- Blasted
 TerrainImprovementType <|-- Blasted
 TerrainImprovementType <|-- Bridge
 TerrainImprovementType <|-- Castle
@@ -59,7 +61,6 @@ TerrainImprovementType <|-- DragonTunnel
 TerrainImprovementType <|-- Ford
 TerrainImprovementType <|-- Portal
 TerrainImprovementType <|-- Town
-TerrainImprovementType <|-- VortexTerrain
 TerrainImprovementType <|-- Path
                             Path <|-- Road
                             Path <|-- Trail
