@@ -29,7 +29,7 @@ Map *-- "2046" Hex
 Hex *-- "6" HexEdge
 Hex *-- TerrainImprovementType
 Hex *-- TerrainType
-Hex *-- Capitol
+Hex *-- "0..1" Capitol
 Hex o-- "0..n" UnitStack
 HexEdge *-- "0..1" Border
 HexEdge *-- "0..1" Stream
