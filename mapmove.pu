@@ -13,10 +13,14 @@ class Hex {
 	-Hex[] neighbors
     -number
     -province
-    +getNumber()
+    -terrain
+    -terrainImprovement
+    +getNumber
     +getProvince
     +getMovementCost(Hex enterHex, Race unitRace)
     +getCombatEffect
+    +getTerrain
+    +getTerrainImprovement
 }
 
 Map o-- "0..n" UnitStack
@@ -45,7 +49,6 @@ TerrainType <|-- Swamp
 TerrainType <|-- Woords
 TerrainImprovementType <|-- Blasted
 TerrainImprovementType <|-- Bridge
-TerrainImprovementType <|-- BridgeGate
 TerrainImprovementType <|-- Castle
 TerrainImprovementType <|-- City
 TerrainImprovementType <|-- DragonTunnel
