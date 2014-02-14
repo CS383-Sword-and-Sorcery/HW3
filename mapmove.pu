@@ -36,7 +36,7 @@ HexEdge *-- "0..1" Stream
 HexEdge *-- "0..1" Wall
                    Wall <|-- SolidWall
                    Wall <|-- Gate
-                   Wall <|-- ForceWall
+HexEdge o-- "0..1" ForceWall
 TerrainType <|-- Broken
 TerrainType <|-- Clear
 TerrainType <|-- Cultivated
