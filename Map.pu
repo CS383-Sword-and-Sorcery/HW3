@@ -85,7 +85,7 @@ RandomEvent ()- Map
 
 
 Map *-- "*" Hex
-Stack "1" o- Hex
+Stack "0..1" o- Hex
 
 
 Hex *----- "1" TerrainType
