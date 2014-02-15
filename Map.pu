@@ -89,11 +89,10 @@ Stack "0..1" o- Hex
 
 
 Hex *----- "1" TerrainType
-Hex *--- "0-1" TerrainImprovementType
-Hex *------ "0-1" HexEdge 
-Hex o-- HexSpellEffect
+Hex *--- "0..1" TerrainImprovementType
+Hex *------ "6" HexEdge 
+Hex o-- "0..*" HexSpellEffect
 
-TerrainImprovementType <|-- Blasted
 TerrainImprovementType <|-- Bridge
 TerrainImprovementType <|-- Castle
 TerrainImprovementType <|-- City
@@ -107,6 +106,7 @@ TerrainImprovementType <|-- Vortex
 TerrainImprovementType <|-- BottomlessPlungehole
 TerrainImprovementType <|-- GatewayOfEvil
 
+TerrainType <|--- Blasted
 TerrainType <|--- Broken
 TerrainType <|--- Clear
 TerrainType <|--- Cultivated
@@ -124,6 +124,6 @@ TerrainType <|--- Woods
 HexEdge <|---- ProvenceBorder
 HexEdge <|---- Stream
 HexEdge <|---- Wall
-HexEdge  o---- HexEdgeSpellEffect
+HexEdge  o---- "0..*" HexEdgeSpellEffect
 HexEdge <|---- Gate
 @enduml
