@@ -5,18 +5,25 @@ class Map {
 }
 
 class Hex {
+-Hex[6] neighbors
+-HexEdges
 -number
 -province
+-TerrainImprovementType
+-TerrainType
+-isCapitol
 +getNumber()
 +getProvince()
 +getMovementCost()
 +getCombatEffect()
++getTerrainType()
++getTerrainImprovementType()
 }
 
 class HexEdges {
--edges[]
+-edges[6]
 +getEdges()
-+edgeCrossed()
++edgeCrossed(int)
 }
 
 interface TerrainImprovementType {
@@ -47,7 +54,10 @@ class Moat
 class River
 class Lake
 class Mountain
-class Portal
+class Portal {
+    -Hex[] portalHexes
+    +Hex[] getPortals()
+}
 class ProvenceBorder
 class Road
 class Rough
