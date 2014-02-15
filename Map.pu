@@ -1,12 +1,14 @@
 @startuml
-class Map {
--Hexes[]
+hide circle
 
+class Map {
+-hexes[]
++getHex(index)
 }
 
 class Hex {
--Hex[6] neighbors
--HexEdges
+-neighbors[6]
+-edges[6]
 -number
 -province
 -TerrainImprovementType
@@ -18,12 +20,12 @@ class Hex {
 +getCombatEffect()
 +getTerrainType()
 +getTerrainImprovementType()
++HexEdge[6] getEdges()
++isCapital()
 }
 
-class HexEdges {
--edges[6]
-+getEdges()
-+edgeCrossed(int)
+class HexEdge {
++edgeCrossed()
 }
 
 interface TerrainImprovementType {
@@ -38,9 +40,8 @@ interface TerrainType {
 
 class Blasted
 class Bridge
-class BridgeGate
+class Gate
 class Broken
-class Capital
 class Castle
 class City
 class Clear
@@ -68,6 +69,10 @@ class Trail
 class Vortex
 class Wall
 class Woods
+class BottomlessPlungehole
+class GatewayOfEvil
+class HexEdgeSpellEffect
+class     HexSpellEffect
 
 RandomEvent ()- Map
 
@@ -78,12 +83,11 @@ Stacks "1" o- Hex
 
 Hex *----- "1" TerrainType
 Hex *--- "0-1" TerrainImprovementType
-Hex *-- "0-1" Capital 
-Hex *------ "0-1" HexEdges 
+Hex *------ "0-1" HexEdge 
+Hex o-- HexSpellEffect
 
 TerrainImprovementType <|-- Blasted
 TerrainImprovementType <|-- Bridge
-TerrainImprovementType <|-- BridgeGate
 TerrainImprovementType <|-- Castle
 TerrainImprovementType <|-- City
 TerrainImprovementType <|-- DragonTunnel
@@ -93,6 +97,8 @@ TerrainImprovementType <|-- Road
 TerrainImprovementType <|-- Town
 TerrainImprovementType <|-- Trail
 TerrainImprovementType <|-- Vortex
+TerrainImprovementType <|-- BottomlessPlungehole
+TerrainImprovementType <|-- GatewayOfEvil
 
 TerrainType <|--- Broken
 TerrainType <|--- Clear
@@ -111,7 +117,6 @@ TerrainType <|--- Woods
 HexEdge <|---- ProvenceBorder
 HexEdge <|---- Stream
 HexEdge <|---- Wall
-
-
-
+HexEdge  o---- HexEdgeSpellEffect
+HexEdge <|---- Gate
 @enduml
