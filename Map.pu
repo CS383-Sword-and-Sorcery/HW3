@@ -22,6 +22,13 @@ class Hex {
 +getTerrainImprovementType()
 +HexEdge[6] getEdges()
 +isCapital()
++getStack()
++updateStack()
+}
+
+class Stack {
+	+Hex[] getReachableHexes()
+	+move(index)
 }
 
 class HexEdge {
@@ -78,7 +85,7 @@ RandomEvent ()- Map
 
 
 Map *-- "*" Hex
-Stacks "1" o- Hex
+Stack "1" o- Hex
 
 
 Hex *----- "1" TerrainType
