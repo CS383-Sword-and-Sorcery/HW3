@@ -1,0 +1,42 @@
+@startuml
+hide circle
+class character_spell{
+  +Name:    string
+  +Magic PL: int
+  +Magic Potential: int
+  +Magic Color: string
+  +Home Hex: int
+  +Magic Profile: int
+  +Magic Resistance: int
+  +Current Location: int
+  + ...
+  + ...()
+  +SelectCharacter() : void
+  +Search_character_table() : void
+  +CastSpell()  : void
+  +CostMana()   : void
+  + ...()
+}
+
+class spell{
+  +Name:        string
+  +index:       int
+  +PowerLevel:  int
+  +ManaCost:    int
+  +Range:       int 
+  +Limits:      ??
+  +Effects:     string
+  +Search_Spell_table()
+  +Search_target()
+  +CastSpell()
+}
+
+class spell_target{
+  +Name:        string
+  +Current Location: int
+}
+
+character_spell <|-right-- spell
+spell <|-- spell_target
+
+@enduml
