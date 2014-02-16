@@ -8,7 +8,7 @@ This folder is used for HW3 groupB
 List of members: </br>
 Tao  - zhan1872@vandals.uidaho.edu <br/>
 John G <br/>
-Jay <br/>
+Jay - drag1741@gmail.com<br/>
 John R <br/>
 Matt <br/>
 Clifford - clif7786@vandals.uidaho.edu<br/>

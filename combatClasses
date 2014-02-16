@@ -1,0 +1,82 @@
+Jay Drage
+
+Combat based classes for Swords and Sorcery
+
+
+Class:  Unit
+	Fields:
+		race  -  which race
+		type  -  which type of unit. i.e. archer, cavalry, etc 
+		country  -  country of origin
+		int maxMovePoints  -  maximum allowed movement points
+		int movePointsRemaining - number of movement points remaining
+		int currentHex  -  number of hex unit is on
+		boolean demoralized  -  true of unit is demoralized
+		int turnsLeftUntilDestroy - number of turns left until unit is auto killed. used for summoned creatures
+	Methods:
+		Die()  -  removes unit from play
+		Move() -  lowers movePointsRemaining, changes currentHex	
+
+Class:  CombatUnit  extends  Unit
+	Fields: 
+		int combatStrength  -  combat strength of unit
+
+
+Class:  Monster  extends  Unit
+
+
+Class:  Character  extends  Unit
+	Fields:
+		int currentManaPoints  -  mana points remaining
+		int maxManaPoints  -  maximum allowed mana points
+		int magicLevel  -	magic level of character
+		int leadership  -  leadership value
+		int magicType  -  type of magic abilities. i.e. blue, red etc.
+	Methods:
+		CastSpell() - cast spell if character has mana
+
+Class:  Stack  :  dynamic aggregate of Units
+	Fields:
+		Unit[] memberUnits - array of units that are in stack
+		int currentHex  -  number of hex stack is on
+		int numberOfMembers  -  how many units in stack
+		boolean characterPresent - true if character is in stack. used for leader in combat
+		int retreatPoints - if stack loses combat it uses retreatPoints to resolve units killed/ retreated
+	Methods:
+		JoinStack()  -  adds unit to memberUnits[], update characterPresent if unit is character
+		LeaveStack()  - removes unit from memberUnits[], update characterPresent
+		Move()  -  move stack to selected hex
+		Attack()  -  attack selected hex
+		Advance() - advance forward after combat
+		Retreat() - retreats after combat
+		Die() - destroys stack
+		ChooseLeader() - choose unit for combatLeader
+		UseMagic() - if magic units present then allow Unit.CastSpell()
+
+
+Class:  Army  :  dynamic aggregate of Stacks
+	Fields:
+		Stack[] memberStacks - array of stacks that are in army
+		Batle[] battlesFought - keeps track of past battles
+		country - country of origin
+	Methods:
+		JoinArmy( Stack S )  -  adds stack to memberStacks[]
+		LeaveArmy( Stack S )  - removes stack from memberStacks[]
+		CreateStack( ) - creates a Stack and joins to army
+
+Class:  Battle
+	Fields:
+		Stack attacker
+		Stack defender
+		int combatRatio  -  
+		int result - result of battle
+		int attackerHex - hex number of attacker before battle
+		int defenderHex - hex number of defender before battle
+		Unit combatLeader - holds chosen combat leader for stack
+		int terrainType - holds int code for terrain type of battle hex
+	Methods:
+		Battle() - sets attackerHex and defenderHex
+		FindCombatRatio() - calculates combatRatio
+		ResolveCombat( ) - resolves combat and sets retreat or advance status of stacks 
+		CheckValidCombat( )
+		FindBattleTerrainType() - uses defenderHex to determine terrainType
