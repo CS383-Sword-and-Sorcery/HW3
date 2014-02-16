@@ -7,10 +7,10 @@ This folder is used for HW3 groupB
 
 List of members: </br>
 Tao  - zhan1872@vandals.uidaho.edu <br/>
-John G <br/>
+John G - john.h.goettsche@gmail.com<br/>
 Jay - drag1741@gmail.com<br/>
 John R <br/>
-Matt <br/>
+Matt - matt2714@vandals.uidaho.edu<br/> 
 Clifford - clif7786@vandals.uidaho.edu<br/>
 
 Game map:
