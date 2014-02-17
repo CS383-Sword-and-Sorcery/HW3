@@ -1,6 +1,8 @@
 @startuml
+
+title <b>spell class diagrams</b>\nTao Zhang\nReviewed by Jay
 hide circle
-class character_spell{
+class character{
   +Name:    string
   +Magic PL: int
   +Magic Potential: int
@@ -11,10 +13,8 @@ class character_spell{
   +Current Location: int
   + ...
   + ...()
-  +SelectCharacter() : void
-  +Search_character_table() : void
   +CastSpell()  : void
-  +CostMana()   : void
+  +DieRoll_High_PL()
   + ...()
 }
 
@@ -26,17 +26,34 @@ class spell{
   +Range:       int 
   +Limits:      ??
   +Effects:     string
-  +Search_Spell_table()
+  +Search_Spell_Book()
   +Search_target()
   +CastSpell()
+}
+
+class spell_book{
+  +Spells_By_PL: string[]
+  +Spells_By_Available_Mana: string[]
+  +Look_up_by_PL()
+  +Look_up_by_Avaiblable_Mana()
+}
+
+package spells{
+  class spell1
+  class spell2
 }
 
 class spell_target{
   +Name:        string
   +Current Location: int
+  +Magic Resistance: int
 }
 
-character_spell <|-right-- spell
-spell <|-- spell_target
+character <|-right-- spell
+spell <|-right- spell_book
+spell <|-up- spell_target
+
+spell_book <|-down-- spell1
+spell_book <|-down-- spell2
 
 @enduml
