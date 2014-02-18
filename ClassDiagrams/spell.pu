@@ -1,6 +1,6 @@
 @startuml
 
-title <b>spell class diagrams</b>\nTao Zhang\nReviewed by Jay
+title <b>spell class diagrams</b>\nTao Zhang\nReviewed by Jay Drage
 hide circle
 class character{
   
@@ -14,6 +14,8 @@ class spell{
   +Range:       int 
   +Limits:      ??
   +Effects:     string
+  +Select_target()
+  +Cost_Mana()
 }
 
 class spell_book{
@@ -23,17 +25,9 @@ class spell_book{
   +Look_up_by_Avaiblable_Mana()
 }
 
-
-class spell_target{
-  +Name:        string
-  +Current Location: int
-  +Magic Resistance: int
-}
-
 character <|-right-- spell_book : see Unit diagram
-spell_book *-down- "27" spell
-
-spell <|-- spell_target 
+spell_book *-down- "32" spell
+ 
 
 
 @enduml
