@@ -3,19 +3,7 @@
 title <b>spell class diagrams</b>\nTao Zhang\nReviewed by Jay
 hide circle
 class character{
-  +Name:    string
-  +Magic PL: int
-  +Magic Potential: int
-  +Magic Color: string
-  +Home Hex: int
-  +Magic Profile: int
-  +Magic Resistance: int
-  +Current Location: int
-  + ...
-  + ...()
-  +CastSpell()  : void
-  +DieRoll_High_PL()
-  + ...()
+  
 }
 
 class spell{
@@ -26,22 +14,15 @@ class spell{
   +Range:       int 
   +Limits:      ??
   +Effects:     string
-  +Search_Spell_Book()
-  +Search_target()
-  +CastSpell()
 }
 
 class spell_book{
-  +Spells_By_PL: string[]
-  +Spells_By_Available_Mana: string[]
+  +Spells_By_PL: string[ ]
+  +Spells_By_Available_Mana: string[ ]
   +Look_up_by_PL()
   +Look_up_by_Avaiblable_Mana()
 }
 
-package spells{
-  class spell1
-  class spell2
-}
 
 class spell_target{
   +Name:        string
@@ -49,11 +30,10 @@ class spell_target{
   +Magic Resistance: int
 }
 
-character <|-right-- spell
-spell <|-right- spell_book
-spell <|-up- spell_target
+character <|-right-- spell_book : see Unit diagram
+spell_book *-down- "27" spell
 
-spell_book <|-down-- spell1
-spell_book <|-down-- spell2
+spell <|-- spell_target 
+
 
 @enduml
