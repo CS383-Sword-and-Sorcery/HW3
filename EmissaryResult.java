@@ -61,7 +61,7 @@ public class EmissaryResult {
 	// generate random dice roll
 	public int DiceRoll( ){
 		Random rand = new Random();
-		int randNum = rand.nextInt(7);
+		int randNum = rand.nextInt(6)+1;
 		return randNum;
 	}
 
