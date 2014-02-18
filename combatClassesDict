@@ -1,0 +1,114 @@
+Jay Drage
+Combat and Unit classes dictionary
+reviewed by Matt Brown
+
+
+Class:  Unit
+	Fields:
+		combatStrength - the combat strength rating of unit
+		movementAllowance - movement points remaining
+	Methods:
+		Die()  -  removes unit from play
+		Spawn() - creates unit and puts into play
+
+
+Class:  Flying inherits Unit
+	Fields:
+		race - race type of unit
+		carrying - is unit carrying anything
+
+Class: Dragon inherits Flying
+		Methods:
+			Blockade[] - allows dragon to blockade tunnel entrance
+
+Class:  Monster  extends  Unit
+	Fields:
+		name - name of unit
+		Magic Potential - maximum level of magic
+		Magic Color - associated magic color
+		Magic Resistance - magic resistance level
+		Fighting - fighting ability
+		Endurance - number of endurance points
+		Combat Strength - combat strength
+	Methods:
+		Random Movement() - moves monster in a random manner
+
+Class: Conjured extends Unit
+	Fields:
+		spawner - character who spawned the unit
+		demoralized value - value once unit is demoralized
+
+Class: Infantry extends Unit
+	Fields:
+		spawner - character who spawned the unit
+		demoralized value - value once unit is demoralized
+
+		
+Class: Cavalry extends Unit
+	Fields:
+		spawner - character who spawned the unit
+		demoralized value - value once unit is demoralized
+
+Class: Cavalry extends Unit
+	Fields:
+		spawner - character who spawned the unit
+		demoralized value - value once unit is demoralized
+	Methods:
+		Ranged Attack() - allows ranged units to attack a non-adjacent hex
+
+Class:  Character
+	Fields:
+		Race - race type of unit
+		Magic Potential  -  maximum allowed mana points
+		Magic Color - associated magic color
+		Home Hex  -  starting location of character
+		Magic Profile - magical visibilty of character 
+		Endurance - number of endurance points
+		Magic Resistance - resistance level to magic 
+		Leadership  -  leadership value
+		Diplomatic - diplomatic level
+		Fighting - fighting ability
+		Endurance - number of endurance points
+	Methods:
+		Diplomacy() - conduct diplomacy with other nations 
+		Escape() - attempt escape from capture
+		CastSpell() - cast spell if character has mana
+		CastCounterSpell() - cast a counter spell during different players turn
+		RallyUnits() - attempt to rally units in current hex
+		Die()  -  removes character from play
+		Spawn() - creates unit and puts into play
+
+
+Class:  Stack  :  dynamic aggregate of Units
+	Fields:
+		Unit[] memberUnits - array of units that are in stack
+		location - Hex object: hex stack is on
+		controlledHexes[6] - hexes under zone of control
+	Methods:
+		
+		Retreat() - retreats after combat
+		Capture() - capture enemy units
+		Advance() - advance forward after combat
+		MoveStack()  -  move stack to selected hex
+		MakeStack() - create new stack for exiting units
+		breakStack() - destroys stack
+		UseMagic() - if magic units present then allow Unit.CastSpell()
+		LeaveStack()  - removes unit from memberUnits[], update characterPresent
+		JoinStack()  -  adds unit to memberUnits[], update characterPresent if unit is character
+
+
+Class:  Battle
+	Fields:
+		attacker - stacks of attacking units
+		defender - stack of defending units
+		combatRatio  - calculated ratio from combat table 
+		result - result of battle
+		attackerHex - hex numbers of attackers before battle
+		defenderHex - hex number of defender before battle
+		terrainType - holds int code for terrain type of battle hex
+	Methods:
+		FindCombatRatio() - calculates combatRatio
+		ResolveCombat( ) - resolves combat and sets retreat or advance status of stacks 
+		CheckValidCombat( ) - performs check to see if battle can procede
+		FindBattleTerrainType() - uses defenderHex to determine terrainType
+		AwardVictoryPoints() - adds victory points to victory conditions
