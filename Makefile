@@ -3,7 +3,7 @@
 pdf: classdiagrams_b.pdf
 png: pngs/Map.png
 
-pngs/%.png: pu/%.pu
+pngs/%.png: ClassDiagrams/%.pu
 	java -jar plantuml.jar -o ../pngs/ $<
 
 classdiagrams_b.pdf: classdiagrams_b.tex pngs/Map.png
